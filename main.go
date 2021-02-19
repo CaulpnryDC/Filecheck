@@ -17,6 +17,7 @@ import (
 func main() {
 
 	start := time.Now()
+	fmt.Println(start)
 
 	logFileName := "/var/log/file-check.json"
 	f, err := os.OpenFile(logFileName, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)

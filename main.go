@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/akamensky/argparse"
 	fc "github.com/caulpnryDC/filecheck/mgmt"
@@ -14,6 +15,8 @@ import (
 )
 
 func main() {
+
+	start := time.Now()
 
 	logFileName := "/var/log/file-check.json"
 	f, err := os.OpenFile(logFileName, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
@@ -87,4 +90,7 @@ func main() {
 			}
 		}
 	}
+	t := time.Now()
+	elapsed := t.Sub(start)
+	fmt.Println(elapsed)
 }
